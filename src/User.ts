@@ -15,3 +15,5 @@ class User {
     };
   }
 }
+
+console.log('test');
