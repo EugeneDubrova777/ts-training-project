@@ -117,23 +117,42 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"src/index.ts":[function(require,module,exports) {
+})({"src/CustomMap.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.CustomMap = void 0;
+var CustomMap = /** @class */function () {
+  function CustomMap(mapDivId) {
+    this.googleMap = new google.maps.Map(document.getElementById(mapDivId), {
+      zoom: 3,
+      center: {
+        lat: 0,
+        lng: 0
+      },
+      backgroundColor: 'black'
+    });
+  }
+  return CustomMap;
+}();
+exports.CustomMap = CustomMap;
+},{}],"src/index.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 // import { User } from './User';
 // import { Company } from './Company';
+var CustomMap_1 = require("./CustomMap");
 // const user = new User();
 // console.log(user);
 // const company = new Company();
 // console.log(company);
-var map = document.getElementById('map');
-new google.maps.Map(map, {
-  zoom: 3,
-  center: {
-    lat: 0,
-    lng: 0
-  },
-  backgroundColor: 'black'
-});
-},{}],"C:/Users/Eugene/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+new CustomMap_1.CustomMap('map');
+},{"./CustomMap":"src/CustomMap.ts"}],"C:/Users/Eugene/AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -158,7 +177,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64042" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62848" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
